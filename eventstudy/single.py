@@ -324,7 +324,7 @@ class Single:
             Refer to datetime standard library for more details date_format: 
             https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
         """
-        data = read_csv(path, format_date=True, date_format=date_format)
+        data = read_csv(io.BytesIO(uploaded[path]), format_date=True, date_format=date_format, encoding='latin-1')
 
         if is_price:
             for key in data.keys():
